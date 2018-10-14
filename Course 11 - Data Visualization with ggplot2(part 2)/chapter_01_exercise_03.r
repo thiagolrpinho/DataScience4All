@@ -59,3 +59,5 @@ ggplot(mtcars, aes(x = wt, y = mpg, col = factor(cyl))) +
               se = FALSE, span = 0.7) +
   # Add correct arguments to scale_color_manual
   scale_color_manual( "Cylinders", values = myColors)
+
+  #Spantastic! The default span for LOESS is 0.9. A lower span will result in a better fit with more detail; but don't overdo it or you'll end up over-fitting!
