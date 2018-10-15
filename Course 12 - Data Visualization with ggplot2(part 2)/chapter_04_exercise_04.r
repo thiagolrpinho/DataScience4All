@@ -19,3 +19,16 @@
 # This is already pretty good, but to remove all non-data ink add a theme_void() layer. (This is the first time we've seen this theme, but you should be familiar with themes already).
 
 # There's a small hole in the center of the pies. Inside geom_bar() set width = 1 so that the bars fill up the entire width resulting in a full pie chart.
+
+# Bar chart
+ggplot(mtcars, aes(x = cyl, fill = am)) +
+  geom_bar(position = "fill")
+
+# Convert bar chart to pie chart
+ggplot(mtcars, aes(x = factor(1), fill = am)) +
+  geom_bar(position = "fill") +
+  facet_grid(. ~ cyl) + # Facets
+  coord_polar(theta = "y") + # Coordinates
+  theme_void() + # theme
+  geom_bar(width = 1)
+  
